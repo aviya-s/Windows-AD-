@@ -1,0 +1,23 @@
+---
+# tasks file for win_ad_install
+
+- name: Install AD-Domain-Services feature
+  win_feature: 
+     name: AD-Domain-Services
+     state: present
+     include_sub_feature: Ture
+     include_management_tools: True
+
+- name: Set up AD controller
+  win_domain:
+     dns_domain_name: "{{ad_domain_name}}"
+     safe_mode_password: "{{ad_safe_mode_password}}"
+  register: AD_controller
+
+- debug: 
+     var: AD_controller
+     verbosity: 2
+
+- name: Reboot
+  win_reboot:
+  when: AD_controller.reboot_required

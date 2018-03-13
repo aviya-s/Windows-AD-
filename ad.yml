@@ -1,0 +1,7 @@
+---
+- name: Installing AD
+  hosts: windows 
+  roles:
+    - win_ad_install
+    - win_service_config
+    - win_add_user

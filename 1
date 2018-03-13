@@ -1,0 +1,5 @@
+---
+- name: Installing AD
+  hosts: ad1.73e6.internal ssh_host=ad1.73e6.example.opentlc.com 
+  roles:
+    - win_ad_install

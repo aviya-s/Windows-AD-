@@ -1,0 +1,5 @@
+---
+# vars file for win_ad_install
+
+ad_domain_name: ad1.73e6.example.opentlc.com
+ad_safe_mode_password: "{{ansible_password}}"
